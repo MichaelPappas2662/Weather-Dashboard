@@ -46,7 +46,7 @@ var getCurrentConditions = (event) => {
             <ul class="list-unstyled">
                 <li>Temperature: ${response.main.temp}&#8451;</li>
                 <li>Humidity: ${response.main.humidity}%</li>
-                <li>Wind Speed: ${response.wind.speed} Km</li>
+                <li>Wind Speed: ${response.wind.speed} Km/h</li>
                 <li id="uvIndex">UV Index:</li>
             </ul>`;
         // Append the results to the DOM
@@ -54,7 +54,7 @@ var getCurrentConditions = (event) => {
         // Get the latitude and longitude for the UV search from Open Weather Maps API
         let latitude = response.coord.lat;
         let longitude = response.coord.lon;
-        let uvQueryURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + latitude + "&lon=" + longitude + "&APPID=" + owmAPI;
+        let uvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + latitude + "&lon=" + longitude + "&APPID=" + owmAPI;
         
         // Fetch the UV information and build the color display for the UV index
         fetch(uvQueryURL)
