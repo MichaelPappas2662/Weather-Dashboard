@@ -1,0 +1,27 @@
+{
+  "name": "weather-dashboard",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">Weather Dashboard 👋</h1>",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelPappas2662/Weather-Dashboard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MichaelPappas2662/Weather-Dashboard/issues"
+  },
+  "homepage": "https://github.com/MichaelPappas2662/Weather-Dashboard#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.7"
+  }
+}
