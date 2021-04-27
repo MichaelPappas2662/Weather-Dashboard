@@ -11,6 +11,7 @@
     <img src="https://img.shields.io/badge/Bootstrap-purple" >
     <img src="https://img.shields.io/badge/Moment.js-green" />
     <img src="https://img.shields.io/badge/OpenWeather%20API-orange" />
+    <img src="https://img.shields.io/badge/Axios.node-blue" />
 </p>
 
 Created a dashboard that uses the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities that are searched for by user. Uses `localStorage` to store any cities that have been searched for prior and allows user to call them up quickly.  
@@ -20,7 +21,7 @@ Created a dashboard that uses the [OpenWeather API](https://openweathermap.org/a
 
 The following image demonstrates the application functionality:
 
-<img src="./assets/pictures/repo.png">  
+<img src="./assets/pictures/repo1.png">  
 
 
 ## User Story
