@@ -1,66 +1,73 @@
 <!DOCTYPE html>
-
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="./assets/style.css" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="./assets/style.css">
-    <title>Weather Dashboard</title>
-</head>
-
-<body>
-    <!-- Jumbotron to display the City name upon search -->
-    <div id="header" class="jumbotron jumbotron-fluid text-container">
-        <h1 id="header-text" class="display-2"></h1>
-        <div id="artist-credit"></div>
-    </div>
-
-    <!-- Main container for webpage content -->
-    <div id="content" class="container">
-        <div class="row">
-
-            <!-- Left side content with city search box and appended cities -->
-            <div id="content-left" class="col-md-3">
-                <form>
-                    <label for="search-city">Search for a City:</label>
-                    <div class="form-row">
-                        <input id="search-city" class="form-control" name="city" value="Sydney"></input>
-                        <!-- fontawesome magnifying glass -->
-                        <button id="search-button" class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+        <title>weather-dashboard</title>
+    </head>
+    
+    <body>
+        <header class="jumbotron">
+            <h1 class="display-5">Weather Dashboard</h1>
+            <p class="lead">A dynamic website to track current weather and 5-days forecast for the cities around the world</p>
+            <div id="currentDay" class="lead"></div>
+        </header> 
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 bg-light">
+                    <h5 class="mt-1">Search for a City:</h5>
+                    <div class="input-group mb-3">
+                        <input id="enter-city" type="text" placeholder="Enter a city">
+                        <button class="btn btn-primary" id="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
                     </div>
-                </form>
-                <div id="search-error"></div>
-                <!-- list of prior searched cities -->
-                <ul id="city-results" class="list-group mt-4"></ul>
-                <!-- clear storage button -->
-                <a id="clear-storage" href="#"></a>    
-            </div>
-
-            <!-- Right side content showing current weather and five day forecast displays on search -->
-            <div id="content-right" class="col-md-9 pt-4">
-                <!-- Current weather displayed on top -->
-                <div id="current-weather" class="border rounded"></div>
-                <!-- Five day forecast below the current weather -->
-                <div id="five-day-forecast" class="mt-5"></div>
+                    <button class="btn btn-primary mb-3" id="clear-history">Clear history</button>
+                    <form id="history"></form>
+                </div>
+               <div class="col-lg-9">
+                    <div class="row mr-0">
+                        <div class="col-lg-11 card m-3 d-none" id="today-weather">
+                            <div class="card-body">
+                                <h3 id="city-name" class="city-name align-middle"></h3>
+                                <p id="weather-description"></p>
+                                <img id="live-icon" alt="">
+                                <p id="temp"></p>
+                                <p id="wind-speed"></p>
+                                <p id="humidity"></p>
+                                <p id="uv-index"></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row d-none" id="fiveday-header">
+                        <div class="col-12">
+                            <h3>5-days Forecast</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 forecast m-2"></div>
+                        <div class="col-md-2 forecast m-2"></div>
+                        <div class="col-md-2 forecast m-2"></div>
+                        <div class="col-md-2 forecast m-2"></div>
+                        <div class="col-md-2 forecast m-2"></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+        
+        
+        <footer class="footer-copyright"><div class="footer-text">© 2021 Michael Pappas</div></footer>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!-- moment.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <!-- Custom Script -->
-    <script src="./assets/script.js"></script>
-    
-</body>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src='./assets/script.js'></script>'
+        
+    </body>
 </html>
