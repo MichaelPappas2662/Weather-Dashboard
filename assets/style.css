@@ -1,35 +1,16 @@
-body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  line-height: 1;
+.navbar-brand {
+  font-size: 36px;
 }
 
-.jumbotron {
-  text-align: center;
-  background-color: #0e2795;
-  color: black;
-  border-radius: 0;
-  border-bottom: 5px solid black;
+.search-header {
+  font-size: 24px;
+  font-weight: bold;
 }
 
-#currentDay.lead {
-  font-size: 1.5rem;
-  color: rgb(255, 230, 0);
+.city-name {
+  font-size: 30px;
 }
 
-.col-md-2 {
-  background-color: #395aee;
-  font: rgb(243, 239, 239);
-  color: aqua;
-  border-radius: 10px;
-}
-
-.footer-copyright{
-  padding: 10px;
-  background-color: black;
-}
-
-.footer-text{
-  color: white;
-  font-style: italic;
+.forecast-date {
+  font-size: 18px;
 }
